@@ -1,4 +1,4 @@
-# <Glam Jam>
+# Glam Jam
 Game choice: Simon (Glam Jam)
 "Glam Jam" is an interactive online memory and pattern-recognition game that challenges players to test and improve their memory skills.
 

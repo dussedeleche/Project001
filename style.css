@@ -1,0 +1,328 @@
+
+body {
+   font-family: 'Open Sans', sans-serif;
+   font-family: 'Signika', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #875992;
+  }
+
+#start-screen {
+  background-image: url("./hearts.gif");
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #8aed10; */
+}
+
+
+
+  .game-title {
+    position: absolute;
+    margin-left: 657px;
+    margin-top: 375px;
+    color: rgb(246, 110, 200);
+    justify-content: center;
+    font-size: 30px;
+    align-items: center;
+  }
+
+ #start-btn {
+  position: absolute;
+  width: 150px;
+  height: 55px;
+  border-radius: 45px;
+  margin-top: -100vh;
+  bottom: 200px;
+  margin-left: 345px;
+  align-items: center;
+  border: none;
+  background-color: rgb(151, 95, 255);
+  color: white;
+  box-shadow: 0px 10px 10px rgb(210, 187, 253) inset,
+  0px 5px 10px rgba(5, 5, 5, 0.212),
+  0px -10px 10px rgb(124, 54, 255) inset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#start-btn::before {
+  width: 70%;
+  height: 2px;
+  position: absolute;
+  background-color: rgba(250, 250, 250, 0.678);
+  content: "";
+  filter: blur(1px);
+  top: 7px;
+  border-radius: 50%;
+}
+
+#start-btn::after {
+  width: 70%;
+  height: 2px;
+  position: absolute;
+  background-color: rgba(250, 250, 250, 0.137);
+  content: "";
+  filter: blur(1px);
+  bottom: 7px;
+  border-radius: 50%;
+}
+
+#start-btn:hover {
+  animation: jello-horizontal 0.9s both;
+}
+
+@keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }    
+
+}
+  
+  .simon-game {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+    /* border: 2px solid pink; */
+    background-color: #ba6393;
+    padding: 74px;
+    border-radius: 100%;
+  }
+
+  .pad {
+    --primary: 255, 90, 120;
+    --secondary: 150, 50, 60;
+    padding: 20px;
+    width: 180px;
+    height: 180px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    outline: 10px solid rgb(var(--primary), .5);
+    border-radius: 100%;
+    position: relative;
+    transition: .3s;
+  }
+  
+  .pad .back {
+    background: inherit;
+    filter: grayscale(50%);
+    border-radius: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .pad .front {
+    background-color: inherit;
+    box-shadow: 0 .5em 1em -0.2em rgba(var(--secondary), .5);
+    border-radius: 100%;
+    position: absolute;
+    border: 1px solid rgb(var(--secondary));
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: inherit;
+    transform: translateY(-15%);
+    transition: .15s;
+    color: rgb(var(--secondary));
+  }
+  
+  .pad:active .front {
+    transform: translateY(0%);
+    box-shadow: 0 0;
+  }
+  
+  .pink {
+    background-color: #f0149f;
+    position: absolute;
+  }
+  
+  .pink.lit {
+    background-color: #f2a1dc;
+  }
+  
+  .purple {
+    background-color: #ae00ff;
+  }
+  
+  .purple.lit {
+    background-color: #e6c4fc;
+  }
+  
+  .green {
+    background-color: #8aed10;
+  }
+  
+  .green.lit {
+    background-color: #cffacf;
+  }
+  
+  .blue {
+    background-color: #5cd7da;
+  }
+  
+  .blue.lit {
+    background-color: #a9f9ec;
+  }
+  
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .glam-start {
+    text-align: center;
+    color: seashell;
+    opacity: 60%;
+    font-size: 200px;
+  }
+
+.overlay, .overlaygame {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.message-box {
+
+}
+
+/* Add this class to remove the display:none property when the winning screen should appear */
+.show {
+    display: flex;
+}
+
+.modal {
+    display: flex;
+}
+
+.modal-content, .modal-inner {
+  display: flex;
+}
+
+.overlay, .overlay2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-inner {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* Close Button */
+.close, .close-win {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+#game-over-modal, #you-win-modal {
+    display: flex;
+}
+
+.flexy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.flex2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scoreboard {
+    color: white;
+    font-size: 32px;
+    text-align: center;
+}

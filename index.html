@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glam Jam</title>
+  <script defer src="main.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Signika:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="start-screen" class="overlaystart">
+    <div class="message-box">
+      <h1 class="glam-start">Glam Jam</h1>
+      <button class="start-button" id="start-btn">PLAY!</button>
+    </div>
+  </div>
+  </div>
+
+  <div id="game-screen" class="overlaygame">
+    <h1 class="game-title">Glam Jam</h1>
+    <h2 class="scoreboard">0</h2>
+
+    <div class="flex-container">
+
+      <div id="losing-screen" class="overlay">
+        <div id="game-over-modal" class="modal-content">
+          <div class="modal-content">
+            <span class="close" id="game-over-close-btn">&times;</span>
+            <div class="flexy">
+              <img class="img" src="./gameover.gif" alt="Game Over GIF">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="winning-screen" class="overlay2">
+        <div id="you-win-modal" class="modal-inner">
+          <div class="modal-inner">
+            <span class="close-win" id="you-win-close-btn">&times;</span>
+            <div class="flex2">
+              <img class="img" src="./Winner.gif" alt="win GIF">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="simon-game">
+        <div id="game-board" class="game-board"></div>
+        <div data-custom-id="pink" id="pink" class="pad pink">
+          <span class="back"></span>
+          <span class="front"></span>
+        </div>
+        <div data-custom-id="purple" id="purple" class="pad purple">
+          <span class="back"></span>
+          <span class="front"></span>
+        </div>
+        <div data-custom-id="green" id="green" class="pad green">
+          <span class="back"></span>
+          <span class="front"></span>
+        </div>
+        <div data-custom-id="blue" id="blue" class="pad blue">
+          <span class="back"></span>
+          <span class="front"></span>
+        </div>
+      </div>
+
+      <div class="turn"></div>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>

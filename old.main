@@ -1,0 +1,139 @@
+// start game and make sure board is cleared 
+function startGame() {
+    let playerTurn = false;
+    let pattern = [];
+    let steps = 0;
+
+let arr = [];
+
+function round() {
+    return arr.push(Math.floor(Math.random() * 3));
+//   this.patternLength = game.steps;
+//   this.pattern = game.pattern;
+//   this.playerPattern = [];
+//   this.counter = 0;
+
+}
+  console.log(round())
+  //Start game
+
+function startGame() {
+    round();
+    document.getElementById('start-btn').disabled = true;
+  }
+}
+console.log(startGame())
+document.getElementById('start-btn').addEventListener('click', startGame);
+  
+  
+  // initiate sequence that makes pattern to be repeated throughout levels. Deliver pattern one tap per level.
+//(loop) per correct response until 10 rounds.
+// function generateMove() {
+//     game.currentGame.push(game.possibilities[(Math.floor(Math.random() * 3))]);
+//     showMoves();
+  function newRound() {
+    round = new Round();
+    generatePattern(round.patternLength); // Generate a new pattern
+    showPattern();
+  }
+  
+  function generatePattern(length) {
+    for (let i = 0; i < length; i++) {
+      game.pattern.push(Math.floor(Math.random() * 3)); // Randomize pattern
+    }
+  }
+  
+  function clearIndicators() {
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].classList.remove("lit"); // Remove the "lit" class
+    }
+  }
+  
+  function showPattern() { 
+    game.playerTurn = false;
+  
+    for (let i = 0; i < game.pattern.length; i++) {
+      setTimeout(buttonGlow.bind(null, game.pattern[i], 500), i * 1000);
+    }
+  
+    setTimeout(function() {
+      game.playerTurn = true;
+      clearIndicators(); // Clear highlighting or indicators
+    }, game.pattern.length * 1000);
+  }
+
+//15 second timer until first move is initiated. if timer expires, "game over." If move is made timer disappears.
+
+
+//record player moves(responses) 
+
+function buttonClick(button) {
+    if (game.playerTurn) {
+      var buttonIndex = parseInt(button.target.id); // Gets the index of the clicked button
+      round.playerPattern.push(buttonIndex); // Records the player's move
+      buttonGlow(button); // Show visual feedback
+      check(); 
+    }
+  }
+  
+  function check() {
+    if (round.playerPattern[round.counter] === round.pattern[round.counter]) {
+      round.counter++;
+      if (round.counter === round.patternLength) {
+        // Player successfully repeated the pattern
+        game.playerTurn = false;
+        game.steps++;
+        if (game.steps === 16) {
+         //track level or number of taps to progress to next turn out of 15 rounds
+          // Handle game win
+          steps.innerHTML = '<i class="fa fa-trophy"></i>';
+          setTimeout(newGame, 4000);
+        } else {
+          steps.innerHTML = game.steps < 10 ? "0" + game.steps : game.steps;
+          setTimeout(newRound, 1500);
+        }
+      }
+    } else {
+        // condition- if player performs wrong move game restarts "you lose" message
+      // Player made a mistake, game over
+      game.playerTurn = false;
+      round.counter = 0;
+      round.playerPattern = [];
+      steps.innerHTML = '<i class="fa fa-exclamation-circle"></i>';
+      setTimeout(function() {
+        steps.innerHTML = game.steps < 10 ? "0" + game.steps : game.steps;
+        showPattern(); // Show the correct pattern again
+      }, 1500);
+    }
+  }
+    
+//button to restart game.
+
+
+
+//speed increase based on game level chosen (beg, med, hard)
+
+
+
+
+
+const pads = document.querySelectorAll('.pad');
+
+pads.forEach(pad => {
+  pad.addEventListener('click', () => {
+    // Light up the pad and play a sound
+    lightUpPad(pad);
+  });
+});
+
+function lightUpPad(pad) {
+  console.log("clicked")
+  pad.classList.add('lit');
+  setTimeout(() => {
+    pad.classList.remove('lit');
+  }, 300);
+}
+
+//code buttons to be nubers and do random math 
+
+
